@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+.modalDiv {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  background-color: rgba(178, 179, 180, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  width: 525px;
+  height: 833px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.sidemenu {
+  height: 50px;
+  background-color: white;
+  text-align: center;
+}
+
+legend {
+  font-size: 20px;
+}

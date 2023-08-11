@@ -18,7 +18,6 @@ const drawerWidth = 240;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     flexGrow: 1,
-    padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -93,7 +92,9 @@ export default function PersistentDrawerLeft() {
           </IconButton>
 
           <Typography variant="h4" noWrap component="div">
-            화장지
+            <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+                화장지
+            </Link>
           </Typography>
 
         </Toolbar>

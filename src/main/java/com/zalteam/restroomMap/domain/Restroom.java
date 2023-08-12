@@ -6,22 +6,26 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "restrooms")
 @Getter @Setter
 public class Restroom {
+
+
     @Id
     @GeneratedValue
     @Column(name = "restroom_id")
-    private int id;
+    private Integer id;
 
     @NotEmpty
     private String address;
 
     @NotEmpty
-    private int floor;
+    private Integer floor;
 
     @NotEmpty
     private String gender;  // W(여자), M(남자), B(공용)
@@ -30,6 +34,12 @@ public class Restroom {
 
     private String time;    // 이용시간
 
-    @OneToMany(mappedBy = "restroom")
-    private List<RestroomKeyword> restroomKeywords = new ArrayList<>();
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            mappedBy="restroom"
+    )
+    private List<Review> reviews = new ArrayList<>();
+
+    // keywords 필드는 좀 더 알아봐야함
+    private Set<String> keywords = new LinkedHashSet<>();
 }

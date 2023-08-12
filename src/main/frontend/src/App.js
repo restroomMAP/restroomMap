@@ -1,12 +1,12 @@
 import './App.css';
 import Sidebar from './Sidebar';
+import HomeMap from './HomeMap';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { AddRestroom } from './components/AddRestroom';
 import { RequestEditing } from './components/RequestEditing';
 import { MyReview } from './components/MyReview';
 import { MyAccount } from './components/MyAccount';
 import { AddReview } from './components/AddReview';
-import HomeMap from './HomeMap';
 
 function App() {
 
@@ -18,8 +18,9 @@ function App() {
 
           <Sidebar />
 
+
             <Routes>
-              <Route index element={<HomeMap />} />
+              <Route path="/" element={<HomeMap />} />
             </Routes>
           
           <div className="AddRestroom">

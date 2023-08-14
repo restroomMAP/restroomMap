@@ -1,23 +1,28 @@
 package com.zalteam.restroomMap.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name="keywords")
+@Getter @Setter
 public class Keyword {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     @Column(name = "keyword_id")
-    private int id;
+    private Integer id;
 
-    @OneToMany(mappedBy = "keyword")
-    private List<ReviewKeyword> reviewKeywords = new ArrayList<>();
+    @Column(name = "contents")
+    private String contents;
 
-    @OneToMany(mappedBy = "keyword")
-    private List<RestroomKeyword> restroomKeywords = new ArrayList<>();
-    private String keyword;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="review_id")
+    private Review review;
+
+    @Override
+    public String toString() {
+        return "Keyword [contents=" + contents + "]";
+    }
 }
